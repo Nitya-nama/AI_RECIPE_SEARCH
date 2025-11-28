@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>📜 Saved Recipes</h1>
+    <p><a href="{{ url_for('index') }}">← Back to Search</a></p>
+
+    {% if recipes %}
+        <div class="results-grid">
+            {% for r in recipes %}
+                <article class="recipe-card">
+                    <h3>{{ r.title }}</h3>
+                    <p class="meta">
+                        {{ r.cuisine or 'Unknown cuisine' }} ·
+                        {{ r.difficulty or 'Difficulty N/A' }} ·
+                        {{ r.cook_time or 'Time N/A' }} min
+                    </p>
+                    {% if r.diet_tags %}
+                        <p class="tags">
+                            {% for tag in r.diet_tags %}
+                                <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+                    {% if r.description %}
+                        <p>{{ r.description }}</p>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No recipes saved yet.</p>
+    {% endif %}
+</div>
+</body>
+</html>

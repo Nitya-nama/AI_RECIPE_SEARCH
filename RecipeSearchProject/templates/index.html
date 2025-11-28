@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Recipe Search (Flask)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-right-controls">
+    <button id="refreshBtn">⟳ Refresh</button>
+    <button id="themeToggle">🌙 Dark Mode</button>
+</div>
+
+<div class="container">
+    <h1>🍽 AI Recipe Search</h1>
+    <p class="subtitle">Add recipes, search by ingredients, or use AI semantic search.</p>
+
+    <div class="grid">
+        <!-- Add Recipe -->
+        <section class="card">
+            <h2>Add Recipe</h2>
+            <form id="addRecipeForm">
+                <label>Title</label>
+                <input type="text" id="title" required>
+
+                <label>Description</label>
+                <textarea id="description" rows="2"></textarea>
+
+                <label>Cuisine</label>
+                <input type="text" id="cuisine">
+
+                <label>Difficulty</label>
+                <select id="difficulty">
+                    <option value="">Select</option>
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                </select>
+
+                <label>Cook Time (minutes)</label>
+                <input type="number" id="cook_time" min="1">
+
+                <label>Diet Tags (comma separated)</label>
+                <input type="text" id="diet_tags" placeholder="vegan, gluten-free">
+
+                <label>Ingredients (one per line: name | quantity | unit)</label>
+                <textarea id="ingredients" rows="4" placeholder="rice | 1 | cup"></textarea>
+
+                <label>Steps (one per line)</label>
+                <textarea id="steps" rows="4" placeholder="Wash the rice..."></textarea>
+
+                <button type="submit">Save Recipe</button>
+                <p id="addMessage" class="message"></p>
+            </form>
+        </section>
+
+        <!-- Ingredient Search -->
+        <section class="card">
+            <h2>Search by Ingredients</h2>
+            <form id="ingredientSearchForm">
+                <label>Include Ingredients (comma separated)</label>
+                <input type="text" id="includeIngredients" placeholder="rice, tomato">
+
+                <label>Exclude Ingredients (comma separated)</label>
+                <input type="text" id="excludeIngredients" placeholder="peanut">
+
+                <label for="searchCuisine">Cuisine (optional)</label>
+<select id="searchCuisine">
+    <option value="">-- Select Cuisine --</option>
+    <option>Indian</option>
+    <option>Chinese</option>
+    <option>Italian</option>
+    <option>Mexican</option>
+    <option>Japanese</option>
+    <option>Korean</option>
+    <option>Thai</option>
+    <option>Mediterranean</option>
+    <option>American</option>
+    <option>French</option>
+</select>
+
+<label for="searchDietTag">Diet Tag (optional)</label>
+<select id="searchDietTag">
+    <option value="">-- Select Diet Tag --</option>
+    <option>vegetarian</option>
+    <option>vegan</option>
+    <option>gluten-free</option>
+    <option>high-protein</option>
+    <option>low-carb</option>
+    <option>keto</option>
+    <option>paleo</option>
+    <option>diabetic-friendly</option>
+</select>
+
+
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <!-- Semantic Search -->
+        <section class="card">
+            <h2>Semantic Search (AI)</h2>
+            <form id="semanticSearchForm">
+                <label>Describe what you want</label>
+                <input type="text" id="semanticQuery"
+                       placeholder="spicy south Indian rice dish with vegetables">
+                <button type="submit">AI Search</button>
+            </form>
+            <p class="hint">The model searches recipes by meaning, not just keywords.</p>
+        </section>
+    </div>
+
+    <!-- Results -->
+    <section class="results">
+        <h2>Results</h2>
+        <div id="resultsContainer" class="results-grid"></div>
+    </section>
+
+    <p class="footer">
+        <a href="{{ url_for('history') }}">View All Saved Recipes (History)</a>
+    </p>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
