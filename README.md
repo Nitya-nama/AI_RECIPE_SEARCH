@@ -1,9 +1,4 @@
 # AI_RECIPE_SEARCH
-Here is your **README in pure Markdown format** — ready to copy-paste into `README.md`:
-
----
-
-````markdown
 # 🍽️ AI Recipe Search (Flask + MongoDB)
 
 A smart recipe search web app built with **Flask**, **MongoDB**, and **AI semantic search**.  
