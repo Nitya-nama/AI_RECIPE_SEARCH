@@ -1,5 +1,4 @@
 # AI_RECIPE_SEARCH
-# 🍽️ AI Recipe Search (Flask + MongoDB)
 
 A smart recipe search web app built with **Flask**, **MongoDB**, and **AI semantic search**.  
 Automatically loads **500+ recipes** on the first run.
