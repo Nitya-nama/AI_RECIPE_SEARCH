@@ -75,14 +75,3 @@ static/
 * `GET /history` — View saved recipes
 
 ---
-
-## ✨ Summary
-
-A complete recipe management system with **AI-powered search**, a responsive UI, and a large preloaded recipe dataset. Ideal for academic projects, demos, and learning Flask with MongoDB.
-
-```
-
----
-
-If you want an **ultra-minimal version**, a **detailed version**, or a **GitHub-styled version with badges**, tell me!
-```
